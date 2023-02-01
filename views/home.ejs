@@ -1,0 +1,19 @@
+<!-- to include header.ejs file using ejs -->
+<%- include("partials/header"); -%>
+
+<h1>Home</h1>
+<p><%= homeContent %></p>
+
+<% console.log(posts); %>
+
+<!-- we use substring(0, length) to truncate the content length -->
+<% posts.forEach(function(post){ %>
+<h1><%= post.title%></h1>
+<p>
+  <%= post.content?.substring(0, 100) + "..." %>
+  <a href="/posts/<%= post.id %>">Read more</a>
+</p>
+<% }); %>
+
+<!-- to include footer.ejs file using ejs -->
+<%- include("partials/footer"); -%>
